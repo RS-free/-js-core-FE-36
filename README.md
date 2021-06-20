@@ -1,1 +1,1 @@
-# -js-core-FE-36
+# js-core-FE-36
