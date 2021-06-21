@@ -118,10 +118,10 @@
     *  Напиши скрипт, який підраховує суму всіх парних чисел в масиві
 */
 
-const numbers = [1, 5, 8, 9, 12, 4, 15, 27, 30, 18, 11];
+// const numbers = [1, 5, 8, 9, 12, 4, 15, 27, 30, 18, 11];
 
 //1 переміна тотал
-let total = 0;
+// let total = 0;
 
 // 2 перебрати масив 
 // for(let i = 0; i < numbers.length; i +=1) {
@@ -155,16 +155,202 @@ let total = 0;
 
 /////////////// Застосоиуємо continue /////////////////
 
-for (const number of numbers) {
+// for (const number of numbers) {
     
-    if (number % 2 !== 0) {
-        console.log('Дану ітерацію потрібно пропустити', number);
-        continue;
-    }
+//     if (number % 2 !== 0) {
+//         console.log('Дану ітерацію потрібно пропустити', number);
+//         continue;
+//     }
 
-    console.log(`${number} - ПАРНЕ`);
-    total += number;
-}
-console.log('Total: ', total); 
+//     console.log(`${number} - ПАРНЕ`);
+//     total += number;
+// }
+// console.log('Total: ', total); 
 
-/////// закінчив на 1 год. 13хв. 00сек. /////////
+/////// ЗАДАЧА 3 /////////
+
+/*
+  * НАПИШИ СКРИПТ пошуку логіну
+  *  - Якщо логіну немає, то введи повідомлення 'Користувач (логін) не знайдено.'
+  *  - Якщо знайшли логін, то введіть повідомлення 'Користувач (логін) знайдений.'
+  * 
+  * - Спочатку через for
+  * - Потім через for...of
+  * - Логіка break
+  * - Метод includes() з тернарним оператором
+  * */
+
+// const logins = ['m4ngoDoge', 'kiwidab3st', 'polyIscute', 'aj4xth3m4n'];
+// const loginToFind = 'polyIscute';
+// let message = `Користувача ${loginToFind} не знайдено`;
+
+// for (let i = 0; i < logins.length; i += 1) {
+//     const login = logins[i];
+
+//     console.log('Login:', login);
+    
+//     console.log('Login === loginToFind:', login === loginToFind);
+//     if (login === loginToFind) {
+//         message = `Користувача ${loginToFind} знайдено.`;
+//         break;
+//     }   
+// }
+
+//  console.log(message);
+
+///////////////// for...of //////////////////
+
+// for (const login of logins) {
+//     console.log('Login:', login);
+//     console.log(`${login} === ${loginToFind}: `, login === loginToFind);
+//     if (login === loginToFind) {
+//         console.log('Ура, рівні');
+//         message = `Користувача ${loginToFind} знайдено.`;
+//         break;
+//     }
+// }
+
+// console.log(message);
+
+///////// includes /////////
+
+//  console.log(logins.includes(loginToFind));
+
+//  const message = logins.includes(loginToFind) ? `Користувача ${loginToFind} знайдено.` :`Користувача ${loginToFind} знайдено`;
+
+//  console.log(message);
+
+
+/////////////////////////// ЗАДАЧА 4 ////////////////////////
+
+/*
+    * Напиши скрипт пошуку самого маленького числа в масиві, 
+    * при умові, що числа унікальні (не повторюються).
+*/
+
+// const numbers = [51, 18, 13, 24, 7, 85, 19];
+// let smallestNumber = numbers[0];
+
+// for (const number of numbers) {
+//     console.log(number);
+
+//     if (number < smallestNumber) {
+//         smallestNumber = number;
+//     }
+// }
+
+// console.log('smallestNumber: ', smallestNumber );  
+
+/////////////// ЗАДАЧА 5 ////////////////
+
+/*
+  * Напиши скрипт, який об'єднує всі елементи масиву 
+в однострокове значення 
+  * Елементів може бути будь-яка кількість.
+  * Нехай елементи масиву в строці будуть розділені комою.
+  * - Спочатку через for
+  * - Потім через join()
+*/
+
+// const friends = ['Mango', 'Poly', 'Kiwi', 'Ajax'];
+// let string = '';
+
+// for (const friend of friends) {
+//     string += friend + ',';
+// }
+// string = string.slice(0, string.length - 1);
+// console.log(string);
+
+
+// const string = friends.join(', ');
+// console.log(friends);
+// console.log(string);
+// Повино получитися 'Mango, Poly, Kiwi, Ajax'
+
+/////////////// ЗАДАЧА 6 ////////////////
+
+/*
+    * Напиши скрипт, який заміняє регістр кожного символу
+    в строкі на протилежний.
+    * Наприклад, якщо строка "JavaScript", то на виході 
+    повина бути строка "jAVAsCRIPT".
+*/
+
+// const string = 'JavaScript';
+// const letters = string.split('');
+// let invertedString = '';
+
+// console.log(letters);
+
+// for (const letter of letters) {
+//     console.log(letter);
+
+//     if (letter === letter.toLowerCase()) {
+//         console.log('Ця буква в нижньому регістрі!!! - ', letter);
+    
+//         invertedString += letter.toUpperCase();
+//     } else {
+//         console.log('Ця буква у верхньому регістрі!!! - ', letter);
+//         invertedString += letter.toLowerCase();
+//     }
+// }
+
+// console.log(invertedString);
+
+//////////////// тернарник ////////////////
+
+// for (const letter of letters) {
+//     console.log(letter);
+
+//     invertedString += letter === letter.toLowerCase() ? letter.toUpperCase() : letter.toLowerCase();    
+// }
+
+// console.log('invertedString: ', invertedString); 
+
+/////////////// ЗАДАЧА 7 ////////////////
+
+/*
+    * Робимо slug в URL із назви статі (наприклад dev.to)
+    * Заголовок статі складається лише із букв та пробілів
+    * 
+    * - Нормалізуємо строку
+    * - Розбиваємо по словам 
+    * - Зшиваємо в строку з розділювачем 
+*/
+
+// Повино получитися top-10-benefits-of-react-framework
+
+// const title = 'Top 10 benefits of React framework';
+
+// const normalizedTitle = title.toLowerCase();
+// console.log(normalizedTitle);
+
+// const words = normalizedTitle.split(' ');
+// console.log(words);
+
+// const slug = words.join('-');
+// console.log(slug);
+
+/////////// декларативний код (абстракція) /////////////
+
+// const slug1 = title.toLowerCase().split(' ').join('-');
+// console.log(slug1);
+
+
+/////////////// ЗАДАЧА 8 ////////////////
+
+/*
+    * Напиши скрип, який рахує суму елементів двох масивів
+*/
+
+// const array1 = [5, 10, 15, 20];
+// const array2 = [10, 20, 30];
+// let total = 0;
+
+// const numbers = array1.concat(array2) ;
+
+// for (const number of numbers) {
+//     total += number;
+// }
+
+// console.log(total);
