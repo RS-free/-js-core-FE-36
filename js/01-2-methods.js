@@ -14,7 +14,7 @@ const playlist = {
         console.log('this getName');
     }
 };
-console.log(playlist);
+// console.log(playlist);
 
 playlist.getName(5);
 
