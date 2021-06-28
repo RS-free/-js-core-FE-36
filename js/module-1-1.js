@@ -223,15 +223,17 @@ numberRound2 = Math.round(numberRound2)
 // псевдослучайное число: .random() - 0->1
 let usualRandom = Math.random()
 usualRandom = Math.round(usualRandom)
-console.log(usualRandom)
+// console.log(usualRandom)
 
 // псевдослучайное число: .random()*10 - 0->10
 let random1 = Math.random() * 10
 random1 = Math.round(random1)
-console.log(random1)
+// console.log(random1)
 
 // псевдослучайное число: .random()*(10-1) + 1 - 1->10
 let random2 = Math.random() * (10 - 1) + 1
 random2 = Math.round(random2)
-console.log(random2)
+// console.log(random2)
+
+
 
