@@ -216,22 +216,22 @@
 // console.log(service.mailingList); 
 
 
-function Storage(items) {
-	this.items = items;
-};
-Storage.prototype.getItems = function(items){
-	return this.items;
-};
-Storage.prototype.addItem = function(newItem){
-	this.items = newItem;
-};
-Storage.prototype.removeItem = function(item){
-	this.items = item;
-};
-// Пиши код выше этой строки
-const storage = new Storage(['Нанитоиды', 'Пролонгер', 'Антигравитатор']);
-console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор"]
-storage.addItem('Дроид');
-console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор", "Дроид"]
-storage.removeItem('Пролонгер');
-console.log(storage.getItems()); // ["Нанитоиды", "Антигравитатор", "Дроид"]
+// function Storage(items) {
+// 	this.items = items;
+// };
+// Storage.prototype.getItems = function(items){
+// 	return this.items;
+// };
+// Storage.prototype.addItem = function(newItem){
+// 	this.items = newItem;
+// };
+// Storage.prototype.removeItem = function(item){
+// 	this.items = item;
+// };
+// // Пиши код выше этой строки
+// const storage = new Storage(['Нанитоиды', 'Пролонгер', 'Антигравитатор']);
+// console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор"]
+// storage.addItem('Дроид');
+// console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор", "Дроид"]
+// storage.removeItem('Пролонгер');
+// console.log(storage.getItems()); // ["Нанитоиды", "Антигравитатор", "Дроид"]

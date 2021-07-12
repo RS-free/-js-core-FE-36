@@ -14,8 +14,9 @@
 // import './js/module-3-1-destructuring-SANDRA.js'
 // import './js/3-2-sandra.js'
 // import './js/practic-ls_3.js'
-import './js/module-4-1-callback.js'
+//import './js/module-4-1-callback.js'
 //import './js/module-4-1-stack.js'
+import './js/repeta_constructors.js'
 
 
 
