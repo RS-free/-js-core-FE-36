@@ -428,3 +428,27 @@
 //           SUPERUSER: "superuser",
 //       };
 //   }
+
+
+// function calculateTotalPrice(orderedItems) {
+//   let totalPrice = 0;
+//   // Пиши код ниже этой строки
+
+//   totalPrice.forEach(function(orderedItems, calculateTotalPrice) {
+//     totalPrice += orderedItems[i];
+  
+//   // Пиши код выше этой строки
+  // return totalPrice;
+// } 
+
+function calculateTotalPrice(orderedItems) {
+  let totalPrice = 0;
+  // Пиши код ниже этой строки
+
+  totalPrice.forEach(function(orderedItems, totalPrice){
+    totalPrice += orderedItems[i];
+  });
+
+  // Пиши код выше этой строки
+  return totalPrice;
+}
