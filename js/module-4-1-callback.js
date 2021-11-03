@@ -1,6 +1,6 @@
 // // High-order function
 // function highOrder(value, callback) {
-//     //   console.log(`Hello, I am high Order function`)
+//     console.log(`Hello, I am high Order function`)
 //     callback(value)
 //   }
 //   // highOrder(`Hello, I am callback`, setMessage)

@@ -188,15 +188,15 @@
 //     const login = logins[i];
 
 //     console.log('Login:', login);
-    
-//     console.log('Login === loginToFind:', login === loginToFind);
+//     console.log(`${login} === ${loginToFind}:`, login === loginToFind);
+
 //     if (login === loginToFind) {
 //         message = `Користувача ${loginToFind} знайдено.`;
 //         break;
 //     }   
 // }
 
-//  console.log(message);
+// console.log(message);
 
 ///////////////// for...of //////////////////
 
@@ -354,3 +354,153 @@
 // }
 
 // console.log(total);
+
+
+/* 
+     * задачі з Гері
+*/
+
+// const genres = ['Jazz', 'Blues'];
+// genres.push('Рок-н-рол');
+
+// console.log(genres[0]);
+// console.log(genres[genres.length - 1]);
+// console.log(genres.shift());
+// genres.unshift('Country', 'Reggae');
+// console.log(genres);
+
+// задача 2 ///
+
+// const values = '8 11';
+// const strArr = values.split(' ');
+// console.log(strArr);
+
+// const a = parseFloat(strArr[0]);
+// const b = parseFloat(strArr[1]);
+// const s = a * b;
+// console.log('S:', s);
+
+
+// задача 3 ///
+
+// const string = 'Welcome to the future';
+// const strArr = string.split(' ');
+// strArr.pop();
+// strArr.shift();
+
+// const result = strArr.join(' ');
+// console.log(result);
+// console.log(`'${result}'`);
+
+/// задача 4 ///
+
+// const string = 'Welcome to the future';
+// const strArr = string.split('');
+// strArr.reverse();
+
+// const result = strArr.join('');
+// console.log(result);
+
+/// теж саме, але через for ... of
+
+// const string = 'Welcome to the future';
+// const strArr = string.split('');
+// let result = '';
+// for (let i = strArr.length - 1; i >= 0; i -= 1) {
+//     result += strArr[i];
+// }
+// console.log(result);
+
+/// або ///
+
+// const string = 'Welcome to the future';
+// const strArr = string.split('');
+// console.log(string.split('').reverse().join(''));
+
+/// ЗАДАЧА 5 ....
+
+// const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
+// // langs.sort();
+
+// for (let i = 0; i < langs.length; i += 1) {
+//     for (let j = i + 1; j < langs.length; j += 1) {
+//         if (langs[i][0] > langs[j][0]) {
+//             const tmp = langs[i];
+//             langs[i] = langs[j];
+//             langs[j] = tmp;
+//         }
+//     }
+// }
+// console.log(langs);
+
+/// задача 6 .... 
+//напиши скрипт пошуку найменшого числа в масиві.
+//Код повинен працювати для будь-якого масиву чиселю
+//Використовуй цикл для вирішення задачі.
+
+// const numbers = [2, 17, 94, 1, 23, 37];
+// let min = numbers[0];
+// let max = numbers[0];
+
+// for (const number of numbers) {
+//     if (number < min) {
+//         min = number;
+//     }
+//     if (number > max) {
+//         max = number;
+//     }
+// }
+
+// console.log(min);
+// console.log(max);
+
+// const planets = ["Earth", "Mars", "Venus", "Jupiter", "Saturn"];
+
+// console.log(planets.slice(0, 2)); // ['Earth', 'Mars']
+// console.log(planets.slice(0, 4)); // ['Earth', 'Mars', 'Venus', 'Jupiter']
+// console.log(planets.slice(1, 3)); // ['Mars', 'Venus']
+// console.log(planets.slice(-2)); // ['Jupiter', 'Saturn']
+// console.log(planets.slice()); // ['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn']
+
+
+/// задача 41 3 модулю
+const atTheOldToad = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Dragon breath", price: 780 },
+    { name: "Stone skin", price: 520 },
+  ],
+  // Change code below this line
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(newPotion) {
+    if (this.potions.includes(newPotion)) {
+      return `Error! Potion ${newPotion} is already in your inventory!`;
+    }
+    this.potions.push(newPotion);
+  },
+  removePotion(potionName) {
+    const { potions } = this;
+    for(const potion of potions) {
+      if(potion.name === potionName) {
+        potions.splice(potions.indexOf(potion), 1);
+        return potion;
+      }
+    }
+    return `Potion ${potionName} is not in inventory!`;
+  },
+  updatePotionName(oldName, newName) {
+    const { potions } = this;
+    for(const potion of potions) {
+      if(potion.name === oldName) {
+        return potion.name = newName;
+      }
+    }
+    return `Potion ${oldName} is not in inventory!`;
+  },
+  // Change code above this line
+};
+
+
+
