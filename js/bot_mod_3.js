@@ -139,3 +139,250 @@ apartment.location = {
   country: "Jamaica",
   city: "Kingston",
 };
+
+// задача 8
+const name = "Repair Droid";
+const price = 2500;
+const image = "https://via.placeholder.com/640x480";
+const tags = ["on sale", "trending", "best buy"];
+
+const product = {
+  name,
+  price,
+  image,
+  tags,
+};
+
+// задача 9
+
+const emailInputName = "email";
+const passwordInputName = "password";
+
+const credentials = {
+  [emailInputName]: "henry.carter@aptmail.com",
+  [passwordInputName]: "jqueryismyjam",
+};
+
+// задача 10
+
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+for (const key in apartment) {
+  console.log(key);
+  console.log(apartment[key]);
+}
+const keys = ["descr", "rating", "price"];
+const values = ["Spacious apartment in the city center", 4, 2153];
+
+// задача 11
+
+const keys = [];
+const values = [];
+const advert = {
+  service: "apt",
+};
+const apartment = Object.create(advert);
+apartment.descr = "Spacious apartment in the city center";
+apartment.rating = 4;
+apartment.price = 2153;
+
+for (const key in apartment) {
+  if (apartment.hasOwnProperty(key)) {
+    keys.push(key);
+    values.push(apartment[key]);
+  }
+}
+
+// задача 12
+
+function countProps(object) {
+  let propCount = 0;
+  for (const key in object)
+    if (object.hasOwnProperty(key)) {
+      propCount += 1;
+    }
+  return propCount;
+}
+
+// задача 13
+
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+const values = [];
+for (const key of Object.keys(apartment)) {
+  values.push(apartment[key]);
+}
+const keys = Object.keys(apartment);
+
+// задача 14
+
+function countProps(object) {
+  let propCount = 0;
+  let keys = Object.keys(object);
+  for (let key of keys) {
+    propCount += 1;
+  }
+  return propCount;
+}
+
+// задача 15
+
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+
+const keys = Object.keys(apartment);
+const values = Object.values(apartment);
+
+// задача 16
+
+// Напиши функцию countTotalSalary(salaries) которая принимает объект зарплат,
+// где имя свойства это имя сотрудника, а значение свойства это зарплата.
+// Функция должна рассчитать общую сумму зарплат сотрудников и вернуть её.
+// Используй переменную totalSalary для хранения общей суммы зарплаты.
+
+function countTotalSalary(salaries) {
+  let totalSalary = 0;
+  const values = Object.values(salaries);
+  for (const value of values) {
+    totalSalary += value;
+  }
+  return totalSalary;
+}
+
+// задача 17
+
+const colors = [
+  { hex: "#f44336", rgb: "244,67,54" },
+  { hex: "#2196f3", rgb: "33,150,243" },
+  { hex: "#4caf50", rgb: "76,175,80" },
+  { hex: "#ffeb3b", rgb: "255,235,59" },
+];
+
+const hexColors = [];
+const rgbColors = ["244,67,54", "33,150,243", "76,175,80", "255,235,59"];
+for (const color of colors) {
+  hexColors.push(color.hex);
+}
+
+// задача 18
+
+// Напиши функцию getProductPrice(productName) которая принимает один параметр
+// productName - название продукта.
+// Функция ищет объект продукта с таким именем(свойство name) в массиве
+// products и возвращает его цену(свойство price).
+// Если продукт с таким названием не найден, функция должна возвращать null.
+
+const products = [
+  { name: "Radar", price: 1300, quantity: 4 },
+  { name: "Scanner", price: 2700, quantity: 3 },
+  { name: "Droid", price: 400, quantity: 7 },
+  { name: "Grip", price: 1200, quantity: 9 },
+];
+
+function getProductPrice(productName) {
+  for (const key of products) {
+    if (key.name === productName) {
+      return key.price;
+    }
+  }
+  return null;
+}
+
+// задача 19
+
+// Напиши функцию getAllPropValues(propName) которая принимает один параметр
+// propName - имя(ключ) свойства.Функция должна вернуть массив всех значений
+// свойства с таким именем из каждого объекта в массиве products.
+// Если в объектах нет свойства с таким именем, функция должна вернуть пустой массив.
+
+const products = [
+  { name: "Radar", price: 1300, quantity: 4 },
+  { name: "Scanner", price: 2700, quantity: 3 },
+  { name: "Droid", price: 400, quantity: 7 },
+  { name: "Grip", price: 1200, quantity: 9 },
+];
+
+function getAllPropValues(propName) {
+  const value = [];
+  for (const product of products) {
+    value.push(product[propName]);
+    if (!product[propName]) {
+      return [];
+    }
+  }
+  return value;
+}
+
+// задача 20
+
+// Напиши функцию calculateTotalPrice(productName) которая принимает один параметр productName -
+// название товара.Функция должна вернуть общую стоимость(цена * количество) товара с
+// таким именем из массива products.
+
+const products = [
+  { name: "Radar", price: 1300, quantity: 4 },
+  { name: "Scanner", price: 2700, quantity: 3 },
+  { name: "Droid", price: 400, quantity: 7 },
+  { name: "Grip", price: 1200, quantity: 9 },
+];
+
+function calculateTotalPrice(productName) {
+  let totalPrice = 0;
+  for (const product of products) {
+    if (product.name === productName) {
+      totalPrice = product.price * product.quantity;
+    }
+  }
+  return totalPrice;
+}
+
+// задача 21
+
+// задача 22
+
+// задача 23
+
+// задача 24
+
+// задача 25
+
+// задача 26
+
+// задача 27
+
+// задача 28
+
+// задача 29
+
+// задача 30
+
+// задача 31
+
+// задача 32
+
+// задача 33
+
+// задача 34
+
+// задача 35
+
+// задача 36
+
+// задача 37
+
+// задача 38
+
+// задача 39
+
+// задача 40
+
+// задача 41
