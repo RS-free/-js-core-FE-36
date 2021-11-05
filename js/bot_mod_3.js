@@ -347,13 +347,83 @@ function calculateTotalPrice(productName) {
 
 // задача 21
 
+const highTemperatures = {
+  yesterday: 28,
+  today: 26,
+  tomorrow: 33,
+};
+const { yesterday, today, tomorrow } = highTemperatures;
+const meanTemperature = (yesterday + today + tomorrow) / 3;
+
 // задача 22
+
+const highTemperatures = {
+  yesterday: 28,
+  today: 26,
+  tomorrow: 33,
+};
+const {
+  yesterday,
+  today,
+  tomorrow,
+  icon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg",
+} = highTemperatures;
+const meanTemperature = (yesterday + today + tomorrow) / 3;
 
 // задача 23
 
+const highTemperatures = {
+  yesterday: 28,
+  today: 26,
+  tomorrow: 33,
+};
+const {
+  yesterday: highYesterday,
+  today: highToday,
+  tomorrow: highTomorrow,
+  icon: highIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg",
+} = highTemperatures;
+const meanTemperature = (highYesterday + highToday + highTomorrow) / 3;
+
 // задача 24
 
+const colors = [
+  { hex: "#f44336", rgb: "244,67,54" },
+  { hex: "#2196f3", rgb: "33,150,243" },
+  { hex: "#4caf50", rgb: "76,175,80" },
+  { hex: "#ffeb3b", rgb: "255,235,59" },
+];
+
+const hexColors = ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"];
+const rgbColors = ["244,67,54", "33,150,243", "76,175,80", "255,235,59"];
+for (const { hexColors, rgbColors } of colors) {
+}
+
 // задача 25
+
+const forecast = {
+  today: {
+    low: 28,
+    high: 32,
+    icon: "https://www.flaticon.com/svg/static/icons/svg/861/861059.svg",
+  },
+  tomorrow: {
+    low: 27,
+    high: 31,
+  },
+};
+const {
+  today: {
+    low: lowToday,
+    high: highToday,
+    icon: todayIcon = "https://www.flaticon.com/svg/static/icons/svg/861/861059.svg",
+  },
+  tomorrow: {
+    low: lowTomorrow,
+    high: highTomorrow,
+    icon: tomorrowIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg",
+  },
+} = forecast;
 
 // задача 26
 
