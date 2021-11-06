@@ -427,32 +427,229 @@ const {
 
 // задача 26
 
+function calculateMeanTemperature(forecast) {
+  const {
+    today: { low: todayLow, high: todayHigh },
+    tomorrow: { low: tomorrowLow, high: tomorrowHigh },
+  } = forecast;
+  return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+}
+
 // задача 27
+
+const scores = [89, 64, 42, 17, 93, 51, 26];
+const bestScore = Math.max(...scores);
+const worstScore = Math.min(...scores);
 
 // задача 28
 
+const firstGroupScores = [64, 42, 93];
+const secondGroupScores = [89, 14, 51, 26];
+const thirdGroupScores = [29, 47, 18, 97, 81];
+const allScores = [
+  ...firstGroupScores,
+  ...secondGroupScores,
+  ...thirdGroupScores,
+];
+const bestScore = Math.max(...allScores);
+const worstScore = Math.min(...allScores);
+
 // задача 29
+
+const defaultSettings = {
+  theme: "light",
+  public: true,
+  withPassword: false,
+  minNumberOfQuestions: 10,
+  timePerQuestion: 60,
+};
+const overrideSettings = {
+  public: false,
+  withPassword: true,
+  timePerQuestion: 30,
+};
+const finalSettings = { ...defaultSettings, ...overrideSettings };
 
 // задача 30
 
+// Напиши функцию makeTask(data) которая принимает один параметр data - объект со следующими свойствами.
+// text - текст задачи.
+// category - категория задачи.
+// priority - приоритет задачи.
+// Функция должна составить и вернуть новый объект задачи, не изменяя напрямую параметр data.
+// В новом объекте должно быть свойство completed, значение которого хранится в одноимённой
+// локальной переменной.
+// В параметре data гарантированно будет только свойство text, а остальные два, category и priority,
+// могут отсутствовать.Тогда, в новом объекте задачи, в свойствах category и priority должны быть
+// значения по умолчанию, хранящиеся в одноимённых локальных переменных.
+
+function makeTask(data) {
+  const completed = false;
+  const category = "General";
+  const priority = "Normal";
+  let res = { category, priority, ...data, completed };
+  return res;
+}
+
 // задача 31
+
+function add(...args) {
+  let total = 0;
+  for (const arg of args) {
+    total += arg;
+  }
+  return total;
+}
 
 // задача 32
 
+function addOverNum(firstNumber, ...args) {
+  let total = 0;
+  for (const arg of args) {
+    if (arg > firstNumber) {
+      total += arg;
+    }
+  }
+  return total;
+}
+
 // задача 33
+// Функция findMatches() принимает произвольное количество аргументов.
+// Первым аргументом всегда будет массив чисел, а остальные аргументы будут просто числами.
+// Дополни код функции так, чтобы она возвращала новый массив matches, в котором будут только
+// те аргументы, начиная со второго, которые есть в массиве первого аргумента.
+// Например, findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7) должна вернуть массив[1, 2],
+// потому что только они есть в массиве первого аргумента.
+
+function findMatches(args, ...otherArgs) {
+  const matches = [];
+  for (i = 0; i < otherArgs.length; i += 1) {
+    if (args.includes(otherArgs[i])) {
+      matches.push(otherArgs[i]);
+    }
+  }
+  return matches;
+}
 
 // задача 34
 
+const bookShelf = {
+  books: ["The last kingdom", "The guardian of dreams"],
+  getBooks() {
+    return "Returning all books";
+  },
+  addBook(bookName) {
+    return `Adding book ${bookName}`;
+  },
+  removeBook(bookName) {
+    return `Deleting book ${bookName}`;
+  },
+  updateBook(oldName, newName) {
+    return `Updating book ${oldName} to ${newName}`;
+  },
+};
+
 // задача 35
 
+const bookShelf = {
+  books: ["The last kingdom", "Haze", "The guardian of dreams"],
+  updateBook(oldName, newName) {
+    this.books.splice(this.books.indexOf(oldName), 1, newName);
+  },
+};
+
 // задача 36
+// К нам обратилась владелица лавки зелий «У старой жабы» и заказала программу для ведения инвентаря -
+// добавления, удаления, поиска и обновления зелий.Добавь объекту atTheOldToad свойство potions,
+// значением которого сделай пустой массив.
+
+const atTheOldToad = {};
+atTheOldToad.potions = [];
 
 // задача 37
+// Добавь объекту atTheOldToad метод getPotions(),
+// который просто возвращает значение свойства potions.
+
+const atTheOldToad = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  getPotions() {
+    return this.potions;
+  },
+};
 
 // задача 38
+// Дополни метод addPotion(potionName) так, чтобы он добавлял зелье potionName в
+// конец массива зелий в свойстве potions.
+
+const atTheOldToad = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  addPotion(potionName) {
+    this.potions.push(potionName);
+  },
+};
 
 // задача 39
+// Дополни метод removePotion(potionName) так, чтобы он удалял зелье potionName
+// из массива зелий в свойстве potions.
+
+const atTheOldToad = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  removePotion(potionName) {
+    const indexOfPositionOfArray = this.potions.indexOf(potionName);
+    this.potions.splice(indexOfPositionOfArray, 1);
+  },
+};
 
 // задача 40
+// Дополни метод updatePotionName(oldName, newName) так, чтобы он обновлял название зелья с oldName
+// на newName, в массиве зелий в свойстве potions.
+
+const atTheOldToad = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  updatePotionName(oldName, newName) {
+    this.potions.splice(this.potions.indexOf(oldName), 1, newName);
+  },
+};
 
 // задача 41
+// Заказчица хочет чтобы каждое зелье было представлено не только именем, но и ценой,
+// а в будущем может быть и другими характеристиками.Поэтому теперь в свойстве potions
+// будет храниться массив объектов со следующими свойствами.
+
+const atTheOldToad = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Dragon breath", price: 780 },
+    { name: "Stone skin", price: 520 },
+  ],
+  // Change code below this line
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(newPotion) {
+    if (this.potions.includes(newPotion)) {
+      return `Error! Potion ${newPotion} is already in your inventory!`;
+    }
+
+    this.potions.push(newPotion);
+  },
+  removePotion(potionName) {
+    const { potions } = this;
+    for (const potion of potions) {
+      if (potion.name === potionName) {
+        potions.splice(potions.indexOf(potion), 1);
+        return potion;
+      }
+    }
+    return `Potion ${potionName} is not in inventory!`;
+  },
+  updatePotionName(oldName, newName) {
+    const { potions } = this;
+    for (const potion of potions) {
+      if (potion.name === oldName) {
+        return (potion.name = newName);
+      }
+    }
+    return `Potion ${oldName} is not in inventory!`;
+  },
+};
