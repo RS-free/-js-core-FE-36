@@ -642,7 +642,6 @@ const atTheOldToad = {
     }
     return `Potion ${potionName} is not in inventory!`;
   },
-
   updatePotionName(oldName, newName) {
     const { potions } = this;
     for (let potion of potions) {
@@ -652,6 +651,5 @@ const atTheOldToad = {
       }
     }
     return `Potion ${oldName} is not in inventory!`;
-    // Change code above this line
   },
 };
