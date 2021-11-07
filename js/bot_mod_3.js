@@ -615,41 +615,43 @@ const atTheOldToad = {
 // Заказчица хочет чтобы каждое зелье было представлено не только именем, но и ценой,
 // а в будущем может быть и другими характеристиками.Поэтому теперь в свойстве potions
 // будет храниться массив объектов со следующими свойствами.
-
 const atTheOldToad = {
   potions: [
     { name: "Speed potion", price: 460 },
     { name: "Dragon breath", price: 780 },
     { name: "Stone skin", price: 520 },
   ],
-  // Change code below this line
   getPotions() {
     return this.potions;
   },
   addPotion(newPotion) {
-    if (this.potions.includes(newPotion)) {
-      return `Error! Potion ${newPotion} is already in your inventory!`;
+    for (const potion of this.potions) {
+      if (newPotion.name === potion.name) {
+        return `Error! Potion ${newPotion.name} is already in your inventory!`;
+      }
     }
-
     this.potions.push(newPotion);
   },
   removePotion(potionName) {
     const { potions } = this;
-    for (const potion of potions) {
+    for (let potion of potions) {
       if (potion.name === potionName) {
-        potions.splice(potions.indexOf(potion), 1);
+        this.potions.splice(potions.indexOf(potion), 1);
         return potion;
       }
     }
     return `Potion ${potionName} is not in inventory!`;
   },
+
   updatePotionName(oldName, newName) {
     const { potions } = this;
-    for (const potion of potions) {
+    for (let potion of potions) {
       if (potion.name === oldName) {
-        return (potion.name = newName);
+        potion.name = newName;
+        return potion;
       }
     }
     return `Potion ${oldName} is not in inventory!`;
+    // Change code above this line
   },
 };
