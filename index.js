@@ -17,4 +17,5 @@
 // import './js/module-4-1-callback.js'
 // import './js/module-4-1-stack.js'
 // import './js/repeta_constructors.js'
-import "./js/bot_mod_3.js";
+// import "./js/bot_mod_3.js";
+import "./js/bot_mod_4.js";
