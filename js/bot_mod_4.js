@@ -130,12 +130,74 @@ const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
 // задача 12
 
 // задача 13
+// Функция changeEven(numbers, value) принимает массив чисел numbers и обновляет каждый элемент,
+// значение которого это чётное число, добавляя к нему значение параметра value.
+
+function changeEven(numbers, value) {
+  let newArray = [];
+  numbers.forEach((number) => {
+    number % 2 === 0 ? newArray.push(number + value) : newArray.push(number);
+  });
+  return newArray;
+}
 
 // задача 14
+// Дополни код так, чтобы в переменной planetsLengths получился массив длин названий планет.
+// Обязательно используй метод map().
+
+const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+const planetsLengths = planets.map((planet) => planet.length);
 
 // задача 15
+// Используя метод map() сделай так, чтобы в переменной titles получился массив названий книг
+// (свойство title) из всех объектов массива books.
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+];
+// Change code below this line
+
+const titles = books.map((book) => book.title);
 
 // задача 16
+// Используя метод flatMap() сделай так, чтобы в переменной genres получился массив
+// всех жанров книг(свойство genres) из массива книг books.
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    genres: ["adventure", "history"],
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    genres: ["fiction"],
+  },
+  {
+    title: "Redder Than Blood",
+    author: "Tanith Lee",
+    genres: ["horror", "mysticism"],
+  },
+];
+
+const genres = books.flatMap((book) => book.genres);
 
 // задача 17
 
