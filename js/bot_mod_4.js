@@ -124,10 +124,44 @@ const calculateTotalPrice = (quantity, pricePerItem) => {
 const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
 
 // задача 10
+// Выполни рефакторинг функции calculateTotalPrice(orderedItems) заменив её объявление на стрелочную
+// функцию. Замени коллбек - функцию передаваемую в метод forEach() на стрелочную функцию.
+
+const calculateTotalPrice = (orderedItems) => {
+  let totalPrice = 0;
+
+  orderedItems.forEach((item) => {
+    totalPrice += item;
+  });
+
+  return totalPrice;
+};
 
 // задача 11
 
+const filterArray = (numbers, value) => {
+  const filteredNumbers = [];
+
+  numbers.forEach((number) => {
+    if (number > value) {
+      filteredNumbers.push(number);
+    }
+  });
+  return filteredNumbers;
+};
+
 // задача 12
+
+const getCommonElements = (firstArray, secondArray) => {
+  const commonElements = [];
+
+  firstArray.forEach((element) => {
+    if (secondArray.includes(element)) {
+      commonElements.push(element);
+    }
+  });
+  return commonElements;
+};
 
 // задача 13
 // Функция changeEven(numbers, value) принимает массив чисел numbers и обновляет каждый элемент,
@@ -201,21 +235,123 @@ const genres = books.flatMap((book) => book.genres);
 
 // задача 17
 
+const getUserNames = (users) => {
+  const names = users.map((user) => user.name);
+  return names;
+};
+
 // задача 18
 
+const getUserEmails = (users) => {
+  const emails = users.map((user) => user.email);
+  return emails;
+};
+
 // задача 19
+// Дополни код так, чтобы в переменной evenNumbers получился массив чётных чисел из массива numbers,
+// а в переменной oddNumbers массив нечётных.Обязательно используй метод filter().
+
+const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+const evenNumbers = numbers.filter((number) => number % 2 === 0);
+const oddNumbers = numbers.filter((number) => number % 2 === 1);
 
 // задача 20
+// Дополни код так, чтобы в переменной allGenres был массив всех жанров книг(свойство genres)
+// из массива books, а в переменной uniqueGenres массив уникальных жанров - без повторений.
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    genres: ["adventure", "history"],
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    genres: ["fiction", "mysticism"],
+  },
+  {
+    title: "Redder Than Blood",
+    author: "Tanith Lee",
+    genres: ["horror", "mysticism", "adventure"],
+  },
+];
+
+const allGenres = books.flatMap((book) => book.genres);
+const uniqueGenres = allGenres.filter(
+  (genres, index, array) => array.indexOf(genres) === index
+);
 
 // задача 21
+// Используя метод filter() дополни код так, чтобы:
+// В переменной topRatedBooks получился массив книг рейтинг
+// которых(свойство rating) больше либо равно значению переменной MIN_RATING.
+// В переменной booksByAuthor получился массив книг написанных автором с именем
+// (свойство author) которое совпадает со значением в переменной AUTHOR.
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+];
+
+const MIN_RATING = 8;
+const AUTHOR = "Bernard Cornwell";
+
+const topRatedBooks = books.filter((book) => book.rating >= MIN_RATING);
+const booksByAuthor = books.filter((book) => book.author === AUTHOR);
 
 // задача 22
+// Дополни функцию getUsersWithEyeColor(users, color) так, чтобы она возвращала
+// массив пользователей у которых цвет глаз(свойство eyeColor) совпадает со значением параметра color.
+
+const getUsersWithEyeColor = (users, color) => {
+  const eyeColor = users.filter((user) => user.eyeColor === color);
+  return eyeColor;
+};
 
 // задача 23
+// Дополни функцию getUsersWithAge(users, minAge, maxAge) так, чтобы она возвращала массив пользователей,
+// возраст которых (свойство age) попадает в промежуток от minAge до maxAge.
+
+const getUsersWithAge = (users, minAge, maxAge) => {
+  const age = users.filter((user) => user.age >= minAge && user.age <= maxAge);
+  return age;
+};
 
 // задача 24
+// Дополни функцию getUsersWithFriend(users, friendName) так, чтобы она возвращала массив пользователей
+// у которых есть друг с именем в параметре friendName.Массив друзей пользователя хранится в свойстве friends.
+
+const getUsersWithFriend = (users, friendName) =>
+  users.filter((user) => user.friends.includes(friendName));
 
 // задача 25
+// Дополни функцию getFriends(users) так, чтобы она возвращала массив друзей всех пользователей
+// (свойство friends).У нескольких пользователей могут быть одинаковые друзья, сделай так чтобы
+// возвращаемый массив не содержал повторений.
+
+const getFriends = (users) => {
+  const myFriends = users.flatMap((user) => user.friends);
+  const bestFriends = myFriends.filter(
+    (friends, index, array) => array.indexOf(friends) === index
+  );
+  return bestFriends;
+};
 
 // задача 26
 
