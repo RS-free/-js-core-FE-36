@@ -354,16 +354,93 @@ const getFriends = (users) => {
 };
 
 // задача 26
+// Дополни функцию getActiveUsers(users) так, чтобы она возвращала массив активных пользователей,
+// значение свойства isActive которых true.
+
+const getActiveUsers = (users) => {
+  const isActive = users.filter((user) => user.isActive === true);
+  return isActive;
+};
 
 // задача 27
+// Дополни функцию getInactiveUsers(users) так, чтобы она возвращала массив неактивных пользователей,
+// значение свойства isActive которых false.
+
+const getInactiveUsers = (users) => {
+  const isActive = users.filter((user) => user.isActive !== true);
+  return isActive;
+};
 
 // задача 28
+// Используя метод find() дополни код так, чтобы:
+// В переменной bookWithTitle получился объект книги название которой(свойство title)
+// совпадает со значением переменной BOOK_TITLE.
+// В переменной bookByAuthor получился объект книги автор который(свойство author)
+// совпадает со значением переменной AUTHOR.
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+];
+const BOOK_TITLE = "The Dream of a Ridiculous Man";
+const AUTHOR = "Robert Sheckley";
+
+const bookWithTitle = books.find((title) => title.title === BOOK_TITLE);
+const bookByAuthor = books.find((author) => author.author === AUTHOR);
 
 // задача 29
+// Дополни функцию getUserWithEmail(users, email) так, чтобы она возвращала объект пользователя,
+// почта которого(свойство email) совпадает со значением параметра email.
+
+const getUserWithEmail = (users, email) => {
+  const thisEmail = users.find((user) => user.email === email);
+  return thisEmail;
+};
 
 // задача 30
+// Используя метод every() дополни код так, чтобы:
+// В переменной eachElementInFirstIsEven был результат проверки всех элементов массива firstArray на чётность.
+// В переменной eachElementInFirstIsOdd был результат проверки всех элементов массива firstArray на нечётность.
+// В переменной eachElementInSecondIsEven был результат проверки всех элементов массива secondArray на чётность.
+// В переменной eachElementInSecondIsOdd был результат проверки всех элементов массива secondArray на нечётность.
+// В переменной eachElementInThirdIsEven был результат проверки всех элементов массива thirdArray на чётность.
+// В переменной eachElementInThirdIsOdd был результат проверки всех элементов массива thirdArray на нечётность.
+
+const firstArray = [26, 94, 36, 18];
+const secondArray = [17, 61, 23];
+const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+
+const eachElementInFirstIsEven = firstArray.every((value) => value % 2 === 0);
+const eachElementInFirstIsOdd = firstArray.every((value) => value % 2 === 1);
+
+const eachElementInSecondIsEven = secondArray.every((value) => value % 2 === 0);
+const eachElementInSecondIsOdd = secondArray.every((value) => value % 2 === 1);
+
+const eachElementInThirdIsEven = thirdArray.every((value) => value % 2 === 0);
+const eachElementInThirdIsOdd = thirdArray.every((value) => value % 2 === 1);
 
 // задача 31
+// Дополни функцию isEveryUserActive(users) так, чтобы она проверяла все ли пользователи сейчас
+// активны(свойство isActive) и возвращала true или false.
+
+const isEveryUserActive = (users) => {
+  const isActive = users.every((user) => user.isActive);
+  return isActive;
+};
 
 // задача 32
 
