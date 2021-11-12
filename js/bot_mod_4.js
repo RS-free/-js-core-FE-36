@@ -443,28 +443,188 @@ const isEveryUserActive = (users) => {
 };
 
 // задача 32
+// Используя метод some() дополни код так, чтобы:
+// В переменной anyElementInFirstIsEven был результат проверки наличия чётных элементов в массиве firstArray.
+// В переменной anyElementInFirstIsOdd был результат проверки наличия нечётных элементов в массиве firstArray.
+// В переменной anyElementInSecondIsEven был результат проверки наличия чётных элементов в массиве secondArray.
+// В переменной anyElementInSecondIsOdd был результат проверки наличия нечётных элементов в массиве secondArray.
+// В переменной anyElementInThirdIsEven был результат проверки наличия чётных элементов в массиве thirdArray.
+// В переменной anyElementInThirdIsOdd был результат проверки наличия нечётных элементов в массиве thirdArray.
+
+const firstArray = [26, 94, 36, 18];
+const secondArray = [17, 61, 23];
+const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+
+const anyElementInFirstIsEven = firstArray.some((value) => value % 2 === 0);
+const anyElementInFirstIsOdd = firstArray.some((value) => value % 2 === 1);
+
+const anyElementInSecondIsEven = secondArray.some((value) => value % 2 === 0);
+const anyElementInSecondIsOdd = secondArray.some((value) => value % 2 === 1);
+
+const anyElementInThirdIsEven = thirdArray.some((value) => value % 2 === 0);
+const anyElementInThirdIsOdd = thirdArray.some((value) => value % 2 === 1);
 
 // задача 33
+// Дополни функцию isAnyUserActive(users) так, чтобы она проверяла наличие
+// активных пользователей(свойство isActive) и возвращала true или false.
+
+const isAnyUserActive = (users) => {
+  const isActive = users.some((user) => user.isActive);
+  return isActive;
+};
 
 // задача 34
+// Игровому сервису необходим функционал подсчёта среднего времени проведённого в играх.
+// Дополни код так, чтобы в переменной totalPlayTime получилось общее игровое время из массива playtimes.
+
+const players = {
+  mango: 1270,
+  poly: 468,
+  ajax: 710,
+  kiwi: 244,
+};
+const playtimes = Object.values(players); // [1270, 468, 710, 244]
+const totalPlayTime = playtimes.reduce((players, number) => {
+  return players + number;
+}, 0);
+const averagePlayTime = totalPlayTime / playtimes.length;
 
 // задача 35
+// Нашему сервису необходимо рассчитать среднее время проведённое в одной игре для каждого игрока,
+// и получить общую сумму этих времён.Рассчитать время для каждого из игроков, можно разделив его время
+// (свойство playtime) на количество игр(свойство gamesPlayed).
+
+const players = [
+  { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+  { name: "Poly", playtime: 469, gamesPlayed: 2 },
+  { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+  { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+];
+
+const totalAveragePlaytimePerGame = players.reduce((total, player) => {
+  return total + player.playtime / player.gamesPlayed;
+}, 0);
 
 // задача 36
+// Дополни функцию calculateTotalBalance(users) так, чтобы она считала и возвращала сумму всех
+// средств(свойство balance) которые хранят пользователи из массива users.
+
+const calculateTotalBalance = (users) => {
+  return users
+    .flatMap((user) => user.balance)
+    .reduce((total, user) => {
+      return total + user;
+    }, 0);
+};
 
 // задача 37
+// Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала общее количество
+// друзей(свойство friends) всех пользователей из массива users.
+
+const getTotalFriendCount = (users) => {
+  return users.reduce((allFriends, user) => {
+    return allFriends + user.friends.length;
+  }, 0);
+};
 
 // задача 38
+// Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная
+// по возрастанию копия массива releaseDates, а в переменной alphabeticalAuthors копия массива имён
+// авторов authors отсортированная в по алфавиту.
+
+const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+const authors = [
+  "Tanith Lee",
+  "Bernard Cornwell",
+  "Robert Sheckley",
+  "Fyodor Dostoevsky",
+];
+
+const ascendingReleaseDates = [...releaseDates].sort();
+const alphabeticalAuthors = [...authors].sort();
 
 // задача 39
+// Онлайн бибилиотеке необходимо отображать книги сортированные по дате издания, по её возрастанию или убыванию.
+// Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная по возрастанию
+// копия массива releaseDates, а в переменной descendingReleaseDates копия отсортированная по убыванию.
+
+const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+const ascendingReleaseDates = [...releaseDates].sort((a, b) => a - b);
+const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
 
 // задача 40
+// Онлайн бибилиотеке необходимо отображать книги отсортированные по автору, в алфавитном и обратном
+// алфавитном порядке.Дополни код так, чтобы в переменной authorsInAlphabetOrder получилась отсортированная
+// по алфавиту копия массива authors, а в переменной authorsInReversedOrder копия отсортированная в
+// обратном алфавитном порядке.
+
+const authors = [
+  "Tanith Lee",
+  "Bernard Cornwell",
+  "Robert Sheckley",
+  "Fyodor Dostoevsky",
+  "Howard Lovecraft",
+];
+
+const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
+const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
 
 // задача 41
+// Дополни код так, чтобы:
+// В переменной sortedByAuthorName получился массив книг отсортированный по имени автора в алфавитном порядке.
+// В переменной sortedByReversedAuthorName получился массив книг отсортированный по имени автора в обратном
+// алфавитном порядке.
+// В переменной sortedByAscendingRating получился массив книг отсортированный по возрастанию рейтинга.
+// В переменной sortedByDescentingRating получился массив книг отсортированный по убыванию рейтинга.
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+];
+
+const sortedByAuthorName = [...books].sort((firstBook, secondBook) =>
+  firstBook.author.localeCompare(secondBook.author)
+);
+
+const sortedByReversedAuthorName = [...books].sort((firstBook, secondBook) =>
+  secondBook.author.localeCompare(firstBook.author)
+);
+
+const sortedByAscendingRating = [...books].sort(
+  (firstBook, secondBook) => firstBook.rating - secondBook.rating
+);
+
+const sortedByDescentingRating = [...books].sort(
+  (firstBook, secondBook) => secondBook.rating - firstBook.rating
+);
 
 // задача 42
+// Дополни функцию sortByAscendingBalance(users) так, чтобы она возвращала массив пользователей отсортированный
+// по возрастанию их баланса (свойство balance).
+
+const sortByAscendingBalance = (users) => {
+  const balanceUsers = [...users].sort((a, b) => a.balance - b.balance);
+  return balanceUsers;
+};
 
 // задача 43
+// Дополни функцию sortByDescendingFriendCount(users) так, чтобы она возвращала массив пользователей
+// отсортированный по убыванию количества их друзей(свойство friends).
 
 // задача 44
 
