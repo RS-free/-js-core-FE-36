@@ -626,7 +626,21 @@ const sortByAscendingBalance = (users) => {
 // Дополни функцию sortByDescendingFriendCount(users) так, чтобы она возвращала массив пользователей
 // отсортированный по убыванию количества их друзей(свойство friends).
 
+const sortByDescendingFriendCount = (users) => {
+  const myBestFriend = [...users].sort(
+    (firstFriend, secondFriend) =>
+      secondFriend.friends.length - firstFriend.friends.length
+  );
+  return myBestFriend;
+};
+
 // задача 44
+// Дополни функцию sortByName(users) так, чтобы она возвращала массив пользователей отсортированный по их имени(свойство name)
+// в алфавитном порядке.
+
+const sortByName = (users) => {
+  return [...users].sort((a, b) => a.name.localeCompare(b.name));
+};
 
 // задача 45
 
