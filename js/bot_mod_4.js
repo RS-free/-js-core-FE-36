@@ -643,9 +643,74 @@ const sortByName = (users) => {
 };
 
 // задача 45
+// Дополни код так, чтобы в переменной names получился массив имён авторов в алфавитном порядке, рейтинг книг которых больше
+// значения переменной MIN_BOOK_RATING.
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  {
+    title: "The Dreams in the Witch House",
+    author: "Howard Lovecraft",
+    rating: 8.67,
+  },
+];
+const MIN_BOOK_RATING = 8;
+
+const names = [...books]
+  .filter((book) => book.rating > MIN_BOOK_RATING)
+  .map((book) => book.author)
+  .sort((a, b) => a.localeCompare(b));
 
 // задача 46
+// Дополни функцию getNamesSortedByFriendCount(users) так, чтобы она возвращала массив имён пользователей
+// отсортированный по возрастанию количества их друзей(свойство friends).
+
+const getNamesSortedByFriendCount = (users) => {
+  return [...users]
+    .sort(
+      (firstFriend, secondFriend) =>
+        firstFriend.friends.length - secondFriend.friends.length
+    )
+    .map((user) => user.name);
+};
 
 // задача 47
+// Дополни функцию getSortedFriends(users) так, чтобы она возвращала массив уникальных имён друзей(свойство friends)
+// отсортированный по алфавиту.
+
+const getSortedFriends = (users) => {
+  const allNames = users
+    .flatMap((name) => name.friends)
+    .filter((user, index, array) => array.indexOf(user) === index, 0);
+
+  const uniqueNames = allNames.sort((a, b) => a.localeCompare(b));
+  return uniqueNames;
+};
 
 // задача 48
+// Дополни функцию getTotalBalanceByGender(users, gender) так, чтобы она возвращала общий баланс пользователей(свойство balance),
+// пол которых(свойство gender) совпадает со значением параметра gender.
+
+const getTotalBalanceByGender = (users, gender) => {
+  const totalBalance = users
+    .filter((value) => value.gender === gender)
+    .reduce((total, student) => {
+      return total + student.balance;
+    }, 0);
+  return totalBalance;
+};
