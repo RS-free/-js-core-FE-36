@@ -103,13 +103,194 @@ const historyService = {
 // задача 14
 
 // задача 15
+// Выполни рефакторинг класса Car.Сделай свойства model и price приватными, также как #brand.
+// Стандартизируй публичный интерфейс класса заменив уже объявленные методы на геттеры и сеттеры brand, model
+// и price для взаимодействия с приватными свойствами.
+
+class Car {
+  #brand;
+  #price;
+  #model;
+  constructor({ brand, model, price }) {
+    this.#brand = brand;
+    this.#model = model;
+    this.#price = price;
+  }
+  get brand() {
+    return this.#brand;
+  }
+  set brand(newBrand) {
+    this.#brand = newBrand;
+  }
+  get model() {
+    return this.#model;
+  }
+  set model(newModel) {
+    this.#model = newModel;
+  }
+  get price() {
+    return this.#price;
+  }
+  set price(newPrice) {
+    this.#price = newPrice;
+  }
+}
 
 // задача 16
+// Выполни рефакторинг класса Car.Добавь публичное статическое свойство MAX_PRICE со значением 50000 -
+// максимально допустимая цена автомобиля.
+// Добавь сеттеру price проверку передаваемого значения параметра newPrice.Если оно больше чем MAX_PRICE,
+// сеттер ничего не делает, а если меньше
+// или равно, то перезаписывает цену автомобиля.
+
+class Car {
+  static MAX_PRICE = 50000;
+
+  #price;
+
+  constructor({ price }) {
+    this.#price = price;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+    if (Car.MAX_PRICE <= newPrice) {
+      return;
+    }
+    this.#price = newPrice;
+  }
+}
 
 // задача 17
+// Добавь классу Car публичный статический метод checkPrice(price), принимающий цену автомобиля.
+// Метод должен сравнить значения параметра price и приватного статического свойства MAX_PRICE.
+// Если цена автомобиля превышает максимальную, метод должен вернуть строку "Error! Price exceeds the maximum".
+// В противном случае метод должен вернуть строку "Success! Price is within acceptable limits".
+// Под объявлением класса мы добавили инициализацию экземпляра и вызовы методов, чтобы показать как
+// будет использоваться метод checkPrice(price).
+
+class Car {
+  static #MAX_PRICE = 50000;
+  static checkPrice(price) {
+    if (price > Car.#MAX_PRICE) {
+      return "Error! Price exceeds the maximum";
+    }
+    return "Success! Price is within acceptable limits";
+  }
+  constructor({ price }) {
+    this.price = price;
+  }
+}
 
 // задача 18
+// В приложении нужен администратор с возможностью добавлять почты пользователей в чёрный список.
+// Объяви класс Admin, который наследует от класса User
+// Добавь классу Admin публичное статическое свойство AccessLevel(уровень доступа), значение которого это объект
+
+{ BASIC: "basic", SUPERUSER: "superuser" }
+class User {
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+
+class Admin extends User {
+  static AccessLevel = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+}
 
 // задача 19
+// Добавь классу Admin метод constructor, который принимает один параметр - объект настроек 
+// с двумя свойствами email и accessLevel.Добавь классу Admin публичное свойство accessLevel,
+// значение которого будет передаваться при вызове конструктора.
+// Чтобы показать как будет использоваться класс Admin мы добавили инициализацию экземпляра 
+// под объявлением класса.
+
+class User {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+
+class Admin extends User {
+  static AccessLevel = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+  accessLevel;
+  
+  constructor ({email, accessLevel}) {  
+    super(email);  
+    this.accessLevel = accessLevel;
+  }
+}
 
 // задача 20
+// Добавь классу Admin следующие свойства и методы.
+// Публичное свойство blacklistedEmails для хранения чёрного списка почтовых адресов пользователей. 
+// Значение по умолчанию это пустой массив.Публичный метод blacklist(email) для добавления почты в чёрный список.
+// Метод должен добавлять значение параметра email в массив хранящийся в свойстве blacklistedEmails.
+// Публичный метод isBlacklisted(email) для проверки почты в чёрном списке.Метод должен проверять наличие 
+// значения параметра email в массиве хранящемся в свойстве blacklistedEmails и возвращать true или false.
+// После объявления класса мы добавили инициализацию экземпляра и вызовы методов в той последовательности,
+// в которой твой код будут проверять тесты.Пожалуйста ничего там не меняй.
+
+class User {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+class Admin extends User {
+
+  static AccessLevel = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+
+  constructor({ email, accessLevel }) {
+    super(email);
+    this.accessLevel = accessLevel;
+  }
+  
+  blacklistedEmails = [];
+  
+  blacklist(email) {
+    return this.blacklistedEmails.push(email);
+  }
+  isBlacklisted(email) {
+    return this.blacklistedEmails.includes(email);
+  }
+}
