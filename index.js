@@ -19,4 +19,5 @@
 // import './js/repeta_constructors.js'
 // import "./js/bot_mod_3.js";
 // import "./js/bot_mod_4.js";
-import "./js/bot_mod_5.js";
+// import "./js/bot_mod_5.js";
+import "./js/module-5_repeta.js";
